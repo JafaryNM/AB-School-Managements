@@ -1,0 +1,56 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="page-header">
+    <h3 class="page-title">{{darasa}} {{subject}} {{exam}} Results </h3>
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">Tables</a></li>
+        <li class="breadcrumb-item active" aria-current="page"></li>
+      </ol>
+    </nav>
+  </div>
+
+   <div class="row">
+
+
+    <div class="col-lg-12 stretch-card">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title"></h4>
+            <div class="table-responsive">
+            <table class="table table-bordered">
+              <thead>
+
+                <tr>
+                  <th>No</th>
+                  <th> Student</th>
+                    <th>Marks</th>
+                </tr>
+              </thead>
+              <tbody>
+                {{subject_id}}
+                {% for result in results %}
+                <tr class="table">
+                  
+
+                   <td>{{forloop.counter}}</td>
+                  <td>{{result.student.first_name}} {{result.student.surname}}</td>
+                    <td>{{result.mark}}</td>
+
+
+                </tr>
+
+
+                {% endfor %}
+              </tbody>
+            </table>
+        </div>
+          </div>
+        </div>
+      </div>
+</div>
+
+
+{% endblock  %}

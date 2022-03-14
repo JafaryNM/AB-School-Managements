@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block  content %}
+
+  <h1> Are sure want to delete {{darasa.name}} ?</h1>
+   <form action="" method="POST">
+    {%csrf_token%}
+    <input class="btn btn-danger" type="submit" value="Delete"/>
+    <a class="btn btn-success" href="{%url 'darasalist' %}">Cancel</a>
+    </form>
+{% endblock%}

@@ -1,0 +1,54 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="page-header">
+    <h3 class="page-title"> Exams </h3>
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">Tables</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Basic tables</li>
+      </ol>
+    </nav>
+  </div>
+
+   <div class="row">
+    <a class="btn btn-primary m-2" href="{% url 'examscreate' %}">Add Exam</a></div>
+
+    <div class="col-lg-12 stretch-card">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">Exams List </h4>
+            <div class="table-responsive">
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>No</th>
+                  <th> Subject</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for exam in exams %}
+                <tr class="table">
+
+                   <td>{{forloop.counter}}</td>
+                  <td>{{exam.name}}</td>
+                  <td style="width: 100px;"><a href="{% url 'examupdate' exam.id %}" class="mdi mdi-table-edit"></a>
+                   <a href="{% url 'examdelete' exam.id %}" class="mdi mdi-delete"></a>
+                </td>
+
+                </tr>
+
+
+                {% endfor %}
+              </tbody>
+            </table>
+        </div>
+          </div>
+        </div>
+      </div>
+</div>
+
+
+{% endblock  %}
